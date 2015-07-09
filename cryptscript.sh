@@ -1,5 +1,34 @@
 #!/bin/bash
 
+## ssh pub/private key gen
+ssh-keygen -t rsa -b 4096 -C rfoster@rfoster-Precision-T7610
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (/home/rfoster/.ssh/id_rsa): 
+# Created directory '/home/rfoster/.ssh'.
+# Enter passphrase (empty for no passphrase): 
+# Enter same passphrase again: 
+# Your identification has been saved in /home/rfoster/.ssh/id_rsa.
+# Your public key has been saved in /home/rfoster/.ssh/id_rsa.pub.
+# The key fingerprint is:
+# 73:67:61:5e:fa:d1:b5:5a:fc:18:64:f1:43:81:e1:34 rfoster@rfoster-Precision-T7610
+# The key's randomart image is:
+# +---[RSA 4096]----+
+# |             E+o.|
+# |            o.oo |
+# |            o.+.o|
+# |           o *..+|
+# |        S . = o+.|
+# |         o o .o+.|
+# |             .o .|
+# |                 |
+# |                 |
+# +-----------------+
+eval "$(ssh-agent -s)"
+# Agent pid 8040
+ssh-add ~/.ssh/id_rsa
+# Enter passphrase for /home/rfoster/.ssh/id_rsa: 
+# Identity added: /home/rfoster/.ssh/id_rsa (/home/rfoster/.ssh/id_rsa)
+
 ## gen private key to file
 openssl genrsa -out mykey.pem 1024;
 
